@@ -1,5 +1,5 @@
 import { createContext, useReducer } from "react";
-import PetFinderReducer from "./PetFinderReducer";
+import petFinderReducer from "./petFinderReducer";
 
 const PetFinderContext = createContext();
 
@@ -9,7 +9,7 @@ export const PetFinderProvider = ({ children }) => {
     animal: {},
   };
 
-  const [state, dispatch] = useReducer(PetFinderReducer, initialState);
+  const [state, dispatch] = useReducer(petFinderReducer, initialState);
 
   return (
     <PetFinderContext.Provider value={{ ...state, dispatch }}>
