@@ -1,5 +1,11 @@
+import AnimalSearch from "../animals/AnimalSearch";
+
 function Home() {
-  return <div>Home</div>;
+  return (
+    <div>
+      <AnimalSearch />
+    </div>
+  );
 }
 
 export default Home;

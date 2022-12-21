@@ -3,24 +3,28 @@ import Footer from "./components/layout/Footer";
 import Navbar from "./components/layout/Navbar";
 import About from "./components/pages/About";
 import Home from "./components/pages/Home";
+import NotFound from "./components/pages/NotFound";
+import { PetFinderProvider } from "./components/context/PetFinderContext";
 
 function App() {
   return (
-    <Router>
-      <div className="flex flex-col justify-between h-screen">
-        <Navbar title={"Derp!"} />
+    <PetFinderProvider>
+      <Router>
+        <div className="flex flex-col justify-between h-screen">
+          <Navbar title={"Pet Finder"} />
 
-        <main className="container mx-auto px-3 pb-12">
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/about" element={<About />} />
-            {/* <Route path="/animals/:animal" element={<Animal />} /> */}
-            {/* <Route path="*" element={<NotFound />} /> */}
-          </Routes>
-        </main>
-        <Footer />
-      </div>
-    </Router>
+          <main className="container mx-auto px-3 pb-12">
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/about" element={<About />} />
+              {/* <Route path="/animals/:animal" element={<Animal />} /> */}
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          </main>
+          <Footer />
+        </div>
+      </Router>
+    </PetFinderProvider>
   );
 }
 
