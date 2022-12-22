@@ -1,10 +1,12 @@
 import { Link } from "react-router-dom";
-import { FaCat } from "react-icons/fa";
+import PawPrint from "../../assets/pawprint.png";
 
 function AnimalItem({ animal }) {
-  let backgroundImage = animal.photos.length > 0 ? animal.photos[0].medium : "";
+  let backgroundImage =
+    animal.photos.length > 0 ? animal.photos[0].medium : PawPrint;
 
-  console.log(animal);
+  // console.log(animal);
+
   return (
     <div>
       <div className="card shadow-md compact side bg-base-100">
@@ -13,7 +15,6 @@ function AnimalItem({ animal }) {
             <div className="avatar">
               <div className="rounded-full shadow w-14 h-14">
                 <img src={backgroundImage} alt="ldjf" />
-                {/* <i>{FaCat}</i> */}
               </div>
             </div>
           </div>
