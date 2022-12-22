@@ -1,30 +1,9 @@
-import { useEffect, useContext, useState } from "react";
+import { useContext } from "react";
 import PetFinderContext from "../context/PetFinderContext";
 import AnimalItem from "./AnimalItem";
 
 function AnimalResults() {
-  // const { animals, dispatch } = useContext(PetFinderContext);
-
-  const [animals, setAnimals] = useState([]);
-
-  useEffect(() => {
-    fetchAnimals();
-  }, []);
-
-  const fetchAnimals = async () => {
-    const response = await fetch(
-      `${import.meta.env.VITE_PETFINDER_URL}/animals`,
-      {
-        headers: {
-          Authorization: `Bearer ${import.meta.env.VITE_PETFINDER_TOKEN}`,
-        },
-      }
-    );
-    const data = await response.json();
-    setAnimals(data.animals);
-  };
-
-  // console.log(animals);
+  const { animals } = useContext(PetFinderContext);
 
   return (
     <div className="grid grid-cols-1 gap-8 xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2">

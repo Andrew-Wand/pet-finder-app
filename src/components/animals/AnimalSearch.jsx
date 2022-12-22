@@ -4,7 +4,7 @@ import PetFinderContext from "../context/PetFinderContext";
 function AnimalSearch() {
   const [text, setText] = useState("");
 
-  const { animals, dispatch } = useContext(PetFinderContext);
+  const { animals, dispatch, searchAnimalsType } = useContext(PetFinderContext);
 
   const handleChange = (e) => {
     setText(e.target.value);
@@ -16,9 +16,13 @@ function AnimalSearch() {
     if (text === "") {
       window.alert("derp!");
     } else {
-      dispatch({ type: "GET_ANIMALS", payload: animals });
+      searchAnimalsType(text);
+      // dispatch({ type: "GET_ANIMALS_TYPE", payload: animals });
     }
+
+    setText("");
   };
+  // dispatch({ type: "GET_ANIMALS", payload: animals });
 
   return (
     <div className="grid grid-cols-1 xl:grid-cols-2 lg:grid-cols-2 md:grid-cols-2 mb-8 gap-8">
@@ -35,7 +39,7 @@ function AnimalSearch() {
               />
               <button
                 type="submit"
-                className="absolute top-0 right-0 rounded-1-none w-36 btn btn-lg"
+                className="absolute top-0 right-0 rounded-l-none w-36 btn btn-lg"
               >
                 Go
               </button>
