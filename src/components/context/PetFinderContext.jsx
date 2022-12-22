@@ -1,4 +1,4 @@
-import { createContext, useReducer, useEffect } from "react";
+import { createContext, useReducer } from "react";
 import petFinderReducer from "./petFinderReducer";
 
 const PetFinderContext = createContext();
@@ -13,10 +13,6 @@ export const PetFinderProvider = ({ children }) => {
   };
 
   const [state, dispatch] = useReducer(petFinderReducer, initialState);
-
-  // useEffect(() => {
-  //   searchAnimalsType();
-  // }, []);
 
   // Fetch animals (testing)
 
@@ -47,7 +43,6 @@ export const PetFinderProvider = ({ children }) => {
     });
 
     const { animals } = await response.json();
-    console.log({ animals });
     dispatch({
       type: "GET_ANIMALS",
       payload: animals,
