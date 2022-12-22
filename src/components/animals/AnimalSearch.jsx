@@ -1,6 +1,6 @@
 import { useState, useContext } from "react";
 import PetFinderContext from "../context/PetFinderContext";
-import { FaDog, FaCat } from "react-icons/fa";
+import { FaDog, FaCat, FaHorse, FaCrow } from "react-icons/fa";
 import { GiRabbit } from "react-icons/gi";
 
 function AnimalSearch() {
@@ -56,25 +56,55 @@ function AnimalSearch() {
           <button
             onClick={searchType}
             value="dog"
-            className="dog-btn btn btn-md w-20 mx-5"
+            className="btn btn-md w-20 mx-5"
           >
             <FaDog />
           </button>
           <button
             onClick={searchType}
             value="cat"
-            className="dog-btn btn btn-md w-20 mx-5"
+            className="btn btn-md w-20 mx-5"
           >
             <FaCat />
           </button>
 
-          <button
-            onClick={searchType}
-            value="rabbit"
-            className="dog-btn btn btn-md w-20 mx-5"
-          >
-            <GiRabbit />
-          </button>
+          <div className="dropdown ">
+            <label tabIndex={0} className="btn btn-md w-20 mx-5 ">
+              Other
+            </label>
+            <ul
+              tabIndex={0}
+              className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-[21rem] flex flex-row justify-evenly"
+            >
+              <li>
+                <button
+                  onClick={searchType}
+                  value="horse"
+                  className="btn btn-md w-20 "
+                >
+                  <FaHorse />
+                </button>
+              </li>
+              <li>
+                <button
+                  onClick={searchType}
+                  value="bird"
+                  className="btn btn-md w-20  "
+                >
+                  <FaCrow />
+                </button>
+              </li>
+              <li>
+                <button
+                  onClick={searchType}
+                  value="rabbit"
+                  className="btn btn-md w-20  "
+                >
+                  <GiRabbit />
+                </button>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>
