@@ -1,7 +1,10 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
+import PetFinderContext from "../context/PetFinderContext";
 
 function AnimalSearch() {
   const [text, setText] = useState("");
+
+  const { animals, dispatch } = useContext(PetFinderContext);
 
   const handleChange = (e) => {
     setText(e.target.value);
@@ -9,6 +12,12 @@ function AnimalSearch() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    if (text === "") {
+      window.alert("derp!");
+    } else {
+      dispatch({ type: "GET_ANIMALS", payload: animals });
+    }
   };
 
   return (
