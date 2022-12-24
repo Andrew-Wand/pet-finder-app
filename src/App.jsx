@@ -5,6 +5,7 @@ import About from "./components/pages/About";
 import Home from "./components/pages/Home";
 import NotFound from "./components/pages/NotFound";
 import { PetFinderProvider } from "./components/context/PetFinderContext";
+import Animal from "./components/pages/Animal";
 
 function App() {
   return (
@@ -17,7 +18,7 @@ function App() {
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/about" element={<About />} />
-              {/* <Route path="/animals/:animal" element={<Animal />} /> */}
+              <Route path="/animals/:id" element={<Animal />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </main>

@@ -5,6 +5,13 @@ const petFinderReducer = (state, action) => {
         ...state,
         animals: action.payload,
       };
+
+    case "GET_ANIMAL":
+      return {
+        ...state,
+        animal: action.payload,
+      };
+
     // case "GET_ANIMALS_TYPE":
     //   return {
     //     ...state,

@@ -19,7 +19,10 @@ function AnimalItem({ animal }) {
 
           <div>
             <h2 className="card-title">{animal.name}</h2>
-            <Link className="text-base-content text-opacity-40" to={`/animal/`}>
+            <Link
+              className="text-base-content text-opacity-40"
+              to={`/animals/${animal.id}`}
+            >
               View Pet
             </Link>
           </div>

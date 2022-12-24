@@ -36,7 +36,7 @@ export const PetFinderProvider = ({ children }) => {
       type: text,
     });
 
-    const response = await fetch(`${PETFINDER_URL}?${params}`, {
+    const response = await fetch(`${PETFINDER_URL}/animals?${params}`, {
       headers: {
         Authorization: `Bearer ${PETFINDER_TOKEN}`,
       },
@@ -49,13 +49,30 @@ export const PetFinderProvider = ({ children }) => {
     });
   };
 
+  // Get a single animal
+  const getAnimal = async (id) => {
+    const response = await fetch(`${PETFINDER_URL}/animals/${id}`, {
+      headers: {
+        Authorization: `Bearer ${PETFINDER_TOKEN}`,
+      },
+    });
+
+    if (response.status === 404) {
+      window.location = "/notfound";
+    } else {
+      const animalData = await response.json();
+      return { animal: animalData.animal };
+    }
+  };
+
   return (
     <PetFinderContext.Provider
       value={{
-        animals: state.animals,
+        ...state,
         fetchAnimals,
         dispatch,
         searchAnimalsType,
+        getAnimal,
       }}
     >
       {children}
