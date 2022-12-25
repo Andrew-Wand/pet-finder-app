@@ -144,6 +144,23 @@
   opacity: 1;
 }
 
+.petCarousel-body-slide {
+  display: inline-block;
+  max-width: 80%;
+  min-width: 33.333333%;
+  object-fit: cover;
+  transition: filter 0.25s, opacity 0.25s, -webkit-filter 0.25s;
+  font-family: "object-fit:cover";
+}
+
 .petCarousel-body-slide:not(.is-selected) {
   filter: saturate(25%) brightness(0.25);
+}
+
+@media print, screen and (min-width: 1440px) {
+  .petCarousel-body-slide {
+    height: 500px;
+    max-height: 60vh;
+    min-height: 400px;
+  }
 }
