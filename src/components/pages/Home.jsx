@@ -1,5 +1,5 @@
-import AnimalResults from "../animals/AnimalResults";
 import AnimalSearch from "../animals/AnimalSearch";
+import AnimalResults from "../animals/AnimalResults";
 
 function Home() {
   return (

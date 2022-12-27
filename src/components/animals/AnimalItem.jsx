@@ -6,23 +6,55 @@ function AnimalItem({ animal }) {
     animal.photos.length > 0 ? animal.photos[0].large : PawPrint;
 
   return (
-    <div className="card shadow-xl h-80" style={{ backgroundColor: "#525965" }}>
-      <div>
-        <div className="avatar">
-          <figure className="rounded w-40 h-40 m-5">
-            <img src={backgroundImage} alt="Animal" />
-          </figure>
-          <h2 className="card-title text-4xl text-zinc-50 ">{animal.name}</h2>
+    <div className="card shadow-xl h-80" style={{ backgroundColor: "#2E7290" }}>
+      <div className="avatar">
+        <figure className="rounded w-40 h-40 m-5">
+          <img src={backgroundImage} alt="Animal" />
+        </figure>
+        <div className="card-title ">
+          <h2
+            className={
+              animal.name.length > 10
+                ? "text-xl text-zinc-900 mt-2"
+                : "text-4xl text-zinc-900 mt-4"
+            }
+          >
+            {animal.name}
+          </h2>
+          <p
+            className={
+              animal.gender === "Male"
+                ? "badge badge-accent"
+                : "badge badge-secondary"
+            }
+          >
+            {animal.gender}
+          </p>
+
+          <p className="badge badge-neutral badge-outline ml-2 text-rose-50">
+            {animal.age}
+          </p>
+          <div className="mt-2 ml-1">
+            <h1
+              className={
+                animal.breeds.primary.length > 15
+                  ? "text-sm text-rose-50"
+                  : "text-xl text-rose-50"
+              }
+            >
+              {animal.breeds.primary}
+            </h1>
+          </div>
+          <div className="divider"></div>
         </div>
       </div>
 
-      <div className="card-body">
-        <div>
-          <p>animal description</p>
-        </div>
-
-        <div className="card-actions">
-          <Link className="btn bg-neutral-700 " to={`/animals/${animal.id}`}>
+      <div className="card-body relative">
+        <div className="card-actions justify-center">
+          <Link
+            className="btn btn-accent btn-wide rounded-lg text-lg drop-shadow-lg"
+            to={`/animals/${animal.id}`}
+          >
             View Pet
           </Link>
         </div>
