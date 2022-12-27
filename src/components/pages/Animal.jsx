@@ -1,7 +1,6 @@
 import { useEffect, useContext } from "react";
 import PetFinderContext from "../context/PetFinderContext";
 import { useParams } from "react-router-dom";
-import PawPrint from "../../assets/pawprint.png";
 import Flickity from "react-flickity-component";
 
 function Animal() {
@@ -28,11 +27,13 @@ function Animal() {
     <div>
       <h1>{animal.animal?.name}</h1>
 
-      <Flickity options={flickityOptions}>
-        {animal.animal?.photos.map((item, index) => (
-          <img className="petCarousel-body-slide" src={item.large} alt="" />
-        ))}
-      </Flickity>
+      <div className="carousel-wrapper">
+        <Flickity options={flickityOptions}>
+          {animal.animal?.photos.map((item, index) => (
+            <img className="petCarousel-body-slide" src={item.large} alt="" />
+          ))}
+        </Flickity>
+      </div>
 
       {/* // <ul>
       //   {animal.animal?.photos.map((item, index) => (
