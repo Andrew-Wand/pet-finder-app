@@ -38,7 +38,7 @@ function AnimalSearch() {
               <input
                 placeholder="Search"
                 type="text"
-                className="w-full pr-40 bg-gray-200 input input-lg text-black"
+                className="w-full pr-40 bg-gray-200 input input-lg text-black shadow-lg focus:outline-none"
                 onChange={handleChange}
                 value={text}
               />
@@ -52,24 +52,25 @@ function AnimalSearch() {
           </div>
         </form>
 
-        <div className="flex flex-row justify-center">
+        {/* Buttons below input and drop down menu */}
+        <div className="flex flex-row justify-center mt-5">
           <button
             onClick={searchType}
             value="dog"
-            className="btn btn-md w-20 mx-5"
+            className="btn btn-md w-20 mx-5 rounded-lg"
           >
             <FaDog />
           </button>
           <button
             onClick={searchType}
             value="cat"
-            className="btn btn-md w-20 mx-5"
+            className="btn btn-md w-20 mx-5 rounded-lg"
           >
             <FaCat />
           </button>
 
           <div className="dropdown ">
-            <label tabIndex={0} className="btn btn-md w-20 mx-5 ">
+            <label tabIndex={0} className="btn btn-md w-20 mx-5 rounded-lg ">
               Other
             </label>
             <ul
@@ -80,7 +81,7 @@ function AnimalSearch() {
                 <button
                   onClick={searchType}
                   value="horse"
-                  className="btn btn-md w-20 "
+                  className="btn btn-md w-20"
                 >
                   <FaHorse />
                 </button>
@@ -89,7 +90,7 @@ function AnimalSearch() {
                 <button
                   onClick={searchType}
                   value="bird"
-                  className="btn btn-md w-20  "
+                  className="btn btn-md w-20 rounded-lg "
                 >
                   <FaCrow />
                 </button>
@@ -98,7 +99,7 @@ function AnimalSearch() {
                 <button
                   onClick={searchType}
                   value="rabbit"
-                  className="btn btn-md w-20  "
+                  className="btn btn-md w-20 rounded-lg "
                 >
                   <GiRabbit />
                 </button>
