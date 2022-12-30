@@ -26,7 +26,6 @@ function Animal() {
   return (
     <div>
       <h1>{animal.animal?.name}</h1>
-
       <div className="carousel-wrapper">
         <Flickity options={flickityOptions}>
           {animal.animal?.photos.map((item, index) => (
@@ -34,14 +33,6 @@ function Animal() {
           ))}
         </Flickity>
       </div>
-
-      {/* // <ul>
-      //   {animal.animal?.photos.map((item, index) => (
-      //     <li key={index}>
-      //       <img src={item.medium} alt="" />
-      //     </li>
-      //   ))}
-      // </ul> */}
     </div>
   );
 }

@@ -52,11 +52,14 @@ function AnimalItem({ animal }) {
       <div className="card-body relative">
         <div className="card-actions justify-center">
           <Link
-            className="btn btn-accent absolute bottom-8 btn-wide rounded-lg text-lg drop-shadow-lg"
+            className="btn btn-accent absolute bottom-8 btn-wide rounded-lg text-lg shadow-lg"
             to={`/animals/${animal.id}`}
           >
             View Pet
           </Link>
+          <div className="wishlist-icon-container absolute bottom-12 right-5">
+            <button type="submit">derp</button>
+          </div>
         </div>
       </div>
     </div>

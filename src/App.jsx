@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Footer from "./components/layout/Footer";
 import Navbar from "./components/layout/Navbar";
-import About from "./components/pages/About";
+import Wishlist from "./components/pages/Wishlist";
 import Home from "./components/pages/Home";
 import NotFound from "./components/pages/NotFound";
 import { PetFinderProvider } from "./components/context/PetFinderContext";
@@ -17,7 +17,7 @@ function App() {
           <main className="container mx-auto px-3 pb-12">
             <Routes>
               <Route path="/" element={<Home />} />
-              <Route path="/about" element={<About />} />
+              <Route path="/wishlist" element={<Wishlist />} />
               <Route path="/animals/:id" element={<Animal />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
