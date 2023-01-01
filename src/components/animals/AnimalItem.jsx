@@ -1,9 +1,36 @@
+import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import PawPrint from "../../assets/pawprint.png";
+import PetFinderContext from "../context/PetFinderContext";
 
 function AnimalItem({ animal }) {
+  const { addToWishlist, removeFromWishlist } = useContext(PetFinderContext);
+
+  const [wishlist, setWishlist] = useState(true);
+
   let backgroundImage =
     animal.photos.length > 0 ? animal.photos[0].large : PawPrint;
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const wishItem = {
+      id: animal.id,
+      name: animal.name,
+      img: animal.photos,
+      gender: animal.gender,
+      age: animal.age,
+      breed: animal.breeds.primary,
+      description: animal.description,
+      checked: wishlist,
+    };
+
+    if (wishItem.checked === true) {
+      addToWishlist(wishItem);
+    } else {
+      removeFromWishlist(animal.id);
+    }
+    setWishlist(!wishlist);
+  };
 
   return (
     <div className="card shadow-xl h-80" style={{ backgroundColor: "#2E7290" }}>
@@ -57,9 +84,20 @@ function AnimalItem({ animal }) {
           >
             View Pet
           </Link>
-          <div className="wishlist-icon-container absolute bottom-12 right-5">
-            <button type="submit">derp</button>
-          </div>
+
+          <form onSubmit={handleSubmit}>
+            <button type="submit">
+              {!wishlist ? (
+                <div className="wishlist-icon-container absolute bottom-12 right-5 text-rose-200">
+                  derp
+                </div>
+              ) : (
+                <div className="wishlist-icon-container absolute bottom-12 right-5  ">
+                  derp
+                </div>
+              )}
+            </button>
+          </form>
         </div>
       </div>
     </div>

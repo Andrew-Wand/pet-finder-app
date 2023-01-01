@@ -1,5 +1,6 @@
 import { createContext, useReducer } from "react";
 import petFinderReducer from "./petFinderReducer";
+import useLocalStorage from "../hooks/useLocalStorage";
 
 const PetFinderContext = createContext();
 
@@ -65,6 +66,24 @@ export const PetFinderProvider = ({ children }) => {
     }
   };
 
+  // Wishlist stuff
+  const [wishListArr, setWishListArr] = useLocalStorage("wishListArr", []);
+
+  const addToWishlist = (item) => {
+    setWishListArr([item, ...wishListArr]);
+  };
+
+  const removeFromWishlist = (id) => {
+    setWishListArr(wishListArr.filter((item) => item.id !== id));
+  };
+
+  //remove duplicates
+  let uniqueWishlist = Array.from(new Set(wishListArr.map((a) => a.id))).map(
+    (id) => {
+      return wishListArr.find((a) => a.id === id);
+    }
+  );
+
   return (
     <PetFinderContext.Provider
       value={{
@@ -73,6 +92,10 @@ export const PetFinderProvider = ({ children }) => {
         dispatch,
         searchAnimalsType,
         getAnimal,
+        addToWishlist,
+        removeFromWishlist,
+        wishListArr,
+        uniqueWishlist,
       }}
     >
       {children}

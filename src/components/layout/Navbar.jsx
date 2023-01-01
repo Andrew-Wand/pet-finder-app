@@ -1,6 +1,10 @@
 import { Link } from "react-router-dom";
+import { useContext } from "react";
+import PetFinderContext from "../context/PetFinderContext";
 
 function Navbar({ title }) {
+  const { uniqueWishlist } = useContext(PetFinderContext);
+
   return (
     <nav className="navbar mb-12 shadow-lg bg-neutral text-neutral-content">
       <div className="container mx-auto">
@@ -15,7 +19,7 @@ function Navbar({ title }) {
               Home
             </Link>
             <Link to="/wishlist" className="btn btn-ghost btn-sm rounded-btn">
-              Wishlist
+              Wishlist ({uniqueWishlist.length})
             </Link>
           </div>
         </div>
