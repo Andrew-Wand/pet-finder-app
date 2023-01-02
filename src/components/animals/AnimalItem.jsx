@@ -7,6 +7,7 @@ function AnimalItem({ animal }) {
   const { addToWishlist, removeFromWishlist } = useContext(PetFinderContext);
 
   const [wishlist, setWishlist] = useState(true);
+  // const [localwishlist, setLocalWishlist] = useLocalStorage("wishlist", true);
 
   let backgroundImage =
     animal.photos.length > 0 ? animal.photos[0].large : PawPrint;
@@ -34,15 +35,15 @@ function AnimalItem({ animal }) {
 
   return (
     <div className="card shadow-xl h-80" style={{ backgroundColor: "#2E7290" }}>
-      <div className="avatar">
+      <div className="avatar max-h-56">
         <figure className="rounded w-40 h-40 m-5">
           <img src={backgroundImage} alt="Animal" />
         </figure>
-        <div className="card-title ">
+        <div className="card-title relative">
           <h2
             className={
               animal.name.length > 10
-                ? "text-xl text-zinc-900 mt-2"
+                ? " truncate text-xl text-zinc-900 mt-2 "
                 : "text-4xl text-zinc-900 mt-4"
             }
           >
@@ -87,12 +88,12 @@ function AnimalItem({ animal }) {
 
           <form onSubmit={handleSubmit}>
             <button type="submit">
-              {!wishlist ? (
-                <div className="wishlist-icon-container absolute bottom-12 right-5 text-rose-200">
+              {wishlist ? (
+                <div className="wishlist-icon-container absolute bottom-12 right-5 ">
                   derp
                 </div>
               ) : (
-                <div className="wishlist-icon-container absolute bottom-12 right-5  ">
+                <div className="wishlist-icon-container absolute bottom-12 right-5 text-rose-200  ">
                   derp
                 </div>
               )}

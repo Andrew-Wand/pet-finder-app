@@ -8,7 +8,6 @@ function WishlistItem({ item }) {
 
   let backgroundImage = item.img.length > 0 ? item.img[0].large : PawPrint;
 
-  console.log(item);
   return (
     <div className="card shadow-xl h-80" style={{ backgroundColor: "#2E7290" }}>
       <div className="avatar">
