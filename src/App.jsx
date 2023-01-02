@@ -6,18 +6,20 @@ import Home from "./components/pages/Home";
 import NotFound from "./components/pages/NotFound";
 import { PetFinderProvider } from "./components/context/PetFinderContext";
 import Animal from "./components/pages/Animal";
+import Search from "./components/pages/Search";
 
 function App() {
   return (
     <PetFinderProvider>
       <Router>
         <div className="flex flex-col justify-between h-screen">
-          <Navbar title={"Pet Finder"} />
+          <Navbar title={"Pet-opia"} />
 
-          <main className="container mx-auto px-3 pb-12">
+          <main className=" mx-auto px-3 pb-12">
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/wishlist" element={<WishList />} />
+              <Route path="/search" element={<Search />} />
               <Route path="/animals/:id" element={<Animal />} />
               <Route path="*" element={<NotFound />} />
             </Routes>

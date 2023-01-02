@@ -1,7 +1,22 @@
+@import url("https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+body {
+  font-family: "Fredoka One", sans-serif;
+}
+
+.home-img {
+  width: 50rem;
+}
+
+footer {
+  background-color: #8785a2;
+}
+
+/* Filickity stuff */
 .flickity-enabled {
   position: relative;
 }
