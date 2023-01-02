@@ -16,6 +16,10 @@ footer {
   background-color: #8785a2;
 }
 
+svg {
+  pointer-events: none;
+}
+
 /* Filickity stuff */
 .flickity-enabled {
   position: relative;

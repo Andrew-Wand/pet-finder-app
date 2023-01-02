@@ -79,7 +79,7 @@ function AnimalSearch() {
           <div className="dropdown ">
             <label
               tabIndex={0}
-              className="animate__animated animate__fadeInDown badge badge-secondary badge-outline hover:bg-rose-100 w-32 h-24 mx-5 rounded-lg text-2xl"
+              className="animate__animated animate__fadeInDown badge badge-secondary badge-outline hover:bg-rose-100 w-32 h-24 mx-5 rounded-lg text-2xl cursor-pointer"
             >
               Other
             </label>
