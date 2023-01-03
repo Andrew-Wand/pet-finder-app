@@ -1,4 +1,4 @@
-import { createContext, useReducer } from "react";
+import { createContext, useReducer, useState } from "react";
 import petFinderReducer from "./petFinderReducer";
 import useLocalStorage from "../hooks/useLocalStorage";
 
@@ -9,8 +9,8 @@ const PETFINDER_TOKEN = import.meta.env.VITE_PETFINDER_TOKEN;
 
 export const PetFinderProvider = ({ children }) => {
   const initialState = {
-    animals: [],
-    animal: {},
+    animalsArray: [],
+    animalPage: {},
   };
 
   const [state, dispatch] = useReducer(petFinderReducer, initialState);
@@ -44,6 +44,7 @@ export const PetFinderProvider = ({ children }) => {
     });
 
     const { animals } = await response.json();
+    setAnimals(animals);
     dispatch({
       type: "GET_ANIMALS",
       payload: animals,
@@ -84,6 +85,15 @@ export const PetFinderProvider = ({ children }) => {
     }
   );
 
+  // Pagination stuff
+  const [animals, setAnimals] = useLocalStorage("animals", []);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [postPerPage, setPostPerPage] = useState(12);
+  const lastPostIndex = currentPage * postPerPage;
+  const firstPostIndex = lastPostIndex - postPerPage;
+  const currentPost = animals.slice(firstPostIndex, lastPostIndex);
+  const totalPosts = animals.length;
+
   return (
     <PetFinderContext.Provider
       value={{
@@ -96,6 +106,11 @@ export const PetFinderProvider = ({ children }) => {
         removeFromWishlist,
         wishListArr,
         uniqueWishlist,
+        totalPosts,
+        currentPost,
+        postPerPage,
+        currentPage,
+        setCurrentPage,
       }}
     >
       {children}

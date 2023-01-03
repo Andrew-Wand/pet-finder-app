@@ -7,10 +7,14 @@ function Navbar({ title }) {
   const { uniqueWishlist } = useContext(PetFinderContext);
 
   return (
-    <nav className="navbar h-32 mb-12 shadow-lg bg-rose-200">
+    <nav className="navbar h-32 mb-12 shadow-lg bg-rose-200 min-h-[8rem]">
       <div className="container mx-auto">
         <div className="flex-none px-2 mx-2">
-          <Link to="/" className="text-7xl align-middle">
+          <Link
+            to="/"
+            className="text-7xl align-middle underline"
+            style={{ color: "#F98391" }}
+          >
             {title}
           </Link>
         </div>

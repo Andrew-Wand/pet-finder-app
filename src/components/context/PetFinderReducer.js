@@ -3,13 +3,13 @@ const petFinderReducer = (state, action) => {
     case "GET_ANIMALS":
       return {
         ...state,
-        animals: action.payload,
+        animalsArray: action.payload,
       };
 
     case "GET_ANIMAL":
       return {
         ...state,
-        animal: action.payload,
+        animalPage: action.payload,
       };
 
     // case "GET_ANIMALS_TYPE":

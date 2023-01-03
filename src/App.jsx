@@ -13,7 +13,7 @@ function App() {
     <PetFinderProvider>
       <Router>
         <div className="flex flex-col justify-between h-screen">
-          <Navbar title={"Pet-opia"} />
+          <Navbar title={"Petopia"} />
 
           <main className=" mx-auto px-3 pb-12">
             <Routes>

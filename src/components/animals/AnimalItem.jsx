@@ -34,7 +34,7 @@ function AnimalItem({ animal }) {
   };
 
   return (
-    <div className="card shadow-xl h-80" style={{ backgroundColor: "#2E7290" }}>
+    <div className="card shadow-xl h-80" data-theme="valentine">
       <div className="avatar max-h-56">
         <figure className="rounded w-40 h-40 m-5">
           <img src={backgroundImage} alt="Animal" />
@@ -53,7 +53,7 @@ function AnimalItem({ animal }) {
             className={
               animal.gender === "Male"
                 ? "badge badge-accent"
-                : "badge badge-secondary"
+                : "badge badge-primary"
             }
           >
             {animal.gender}
