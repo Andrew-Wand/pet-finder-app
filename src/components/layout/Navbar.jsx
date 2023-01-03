@@ -2,19 +2,24 @@ import { Link } from "react-router-dom";
 import { useContext } from "react";
 import PetFinderContext from "../context/PetFinderContext";
 import { FaRegHeart } from "react-icons/fa";
+import { GiPawHeart } from "react-icons/gi";
 
 function Navbar({ title }) {
   const { uniqueWishlist } = useContext(PetFinderContext);
 
   return (
-    <nav className="navbar h-32 mb-12 shadow-lg bg-rose-200 min-h-[8rem]">
+    <nav className="navbar h-32 mb-12 shadow-md bg-rose-200 min-h-[8rem]">
       <div className="container mx-auto">
-        <div className="flex-none px-2 mx-2">
+        <div className="flex-none px-2 mx-2 relative">
           <Link
             to="/"
             className="text-7xl align-middle underline"
             style={{ color: "#F98391" }}
           >
+            <GiPawHeart
+              className="absolute left-[260px] z-0 rotate-[17deg]"
+              style={{ color: "#F98391" }}
+            />
             {title}
           </Link>
         </div>

@@ -7,14 +7,14 @@ function Pagination() {
 
   let pages = [];
 
-  for (let i = 0; i <= Math.ceil(totalPosts / postPerPage); i++) {
+  for (let i = 1; i <= Math.ceil(totalPosts / postPerPage); i++) {
     pages.push(i);
   }
 
   return (
     <div>
       <div
-        className="absolute flex gap-4 bg-transparent"
+        className="bg-transparent flex justify-center ml-40"
         data-theme="valentine"
       >
         {pages.map((page, index) => {

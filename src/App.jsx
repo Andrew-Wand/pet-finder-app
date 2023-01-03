@@ -12,10 +12,10 @@ function App() {
   return (
     <PetFinderProvider>
       <Router>
-        <div className="flex flex-col justify-between h-screen">
+        <div className="flex flex-col justify-between">
           <Navbar title={"Petopia"} />
 
-          <main className=" mx-auto px-3 pb-12">
+          <main className="container px-3 pb-12 ml-40">
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/wishlist" element={<WishList />} />

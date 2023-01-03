@@ -1,7 +1,7 @@
 function Footer() {
   const footerYear = new Date().getFullYear();
   return (
-    <footer className="footer p-10 text-primary-content footer-center">
+    <footer className="footer p-10 text-primary-content footer-center h-[200px]">
       <div>
         <p>Copyright &copy; {footerYear} All rights reserved</p>
         <a href="https://www.flaticon.com/free-icons/pet" title="pet icons">

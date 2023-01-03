@@ -9,11 +9,15 @@ body {
 }
 
 .home-img {
-  width: 50rem;
+  width: 77rem;
 }
 
 footer {
   background-color: #8785a2;
+}
+
+main {
+  min-height: calc(100vh - 350px);
 }
 
 svg {

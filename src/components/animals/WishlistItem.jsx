@@ -2,6 +2,8 @@ import { useContext } from "react";
 import { Link } from "react-router-dom";
 import PetFinderContext from "../context/PetFinderContext";
 import PawPrint from "../../assets/pawprint.png";
+import { AiFillHeart } from "react-icons/ai";
+import "animate.css";
 
 function WishlistItem({ item }) {
   const { removeFromWishlist } = useContext(PetFinderContext);
@@ -9,7 +11,10 @@ function WishlistItem({ item }) {
   let backgroundImage = item.img.length > 0 ? item.img[0].large : PawPrint;
 
   return (
-    <div className="card shadow-xl h-80" style={{ backgroundColor: "#2E7290" }}>
+    <div
+      className="card shadow-xl h-80 w-[30rem] animate__animated animate__fadeIn "
+      data-theme="valentine"
+    >
       <div className="avatar">
         <figure className="rounded w-40 h-40 m-5">
           <img src={backgroundImage} alt="Animal" />
@@ -18,8 +23,8 @@ function WishlistItem({ item }) {
           <h2
             className={
               item.name.length > 10
-                ? "text-xl text-zinc-900 mt-2"
-                : "text-4xl text-zinc-900 mt-4"
+                ? "text-xl text-zinc-700 mt-2"
+                : "text-4xl text-zinc-700 mt-4"
             }
           >
             {item.name}
@@ -28,23 +33,15 @@ function WishlistItem({ item }) {
             className={
               item.gender === "Male"
                 ? "badge badge-accent"
-                : "badge badge-secondary"
+                : "badge badge-primary"
             }
           >
             {item.gender}
           </p>
 
-          <p className="badge badge-neutral badge-outline ml-2 text-rose-50">
-            {item.age}
-          </p>
+          <p className="badge badge-neutral badge-outline ml-2">{item.age}</p>
           <div className="mt-2 ml-1">
-            <h1
-              className={
-                item.breed.length > 15
-                  ? "text-sm text-rose-50"
-                  : "text-xl text-rose-50"
-              }
-            >
+            <h1 className={item.breed.length > 15 ? "text-sm" : "text-xl"}>
               {item.breed}
             </h1>
           </div>
@@ -63,9 +60,9 @@ function WishlistItem({ item }) {
 
           <form>
             <button type="submit" onClick={() => removeFromWishlist(item.id)}>
-              <div className="wishlist-icon-container absolute bottom-12 right-5 text-rose-200">
-                derp
-              </div>
+              <i className="wishlist-icon-container absolute bottom-8 right-7 text-5xl ">
+                <AiFillHeart />
+              </i>
             </button>
           </form>
         </div>

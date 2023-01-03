@@ -35,21 +35,21 @@ function AnimalSearch() {
   };
 
   return (
-    <div className="w-6/12 lg:w-full mt-32">
-      <div data-theme="pastel" style={{ backgroundColor: "#ffffff" }}>
+    <div className="w-6/12 lg:w-full mt-48">
+      <div data-theme="pastel">
         <form onSubmit={handleSubmit}>
           <div className="form-control">
-            <div className="relative">
+            <div className="relative animate__animated animate__fadeIn ">
               <input
                 placeholder="Search"
                 type="text"
-                className="w-full pr-40 bg-rose-100 input input-lg text-black shadow-lg focus:outline-none "
+                className="w-full pr-40 bg-rose-100 input input-lg text-black shadow-lg focus:outline-none  "
                 onChange={handleChange}
                 value={text}
               />
               <button
                 type="submit"
-                className="absolute top-0 right-0 rounded-l-none w-36 btn btn-secondary btn-lg"
+                className="absolute top-0 right-0 rounded-l-none w-36 btn btn-secondary btn-lg "
                 data-theme="cupcake"
               >
                 Go
@@ -92,7 +92,7 @@ function AnimalSearch() {
                 <button
                   onClick={searchType}
                   value="horse"
-                  className="badge badge-secondary badge-outline hover:bg-rose-100 w-32 h-24 mx-5 rounded-lg text-2xl cursor-pointer"
+                  className="badge badge-secondary badge-outline hover:bg-rose-100 w-32 h-24 mx-5 rounded-lg text-5xl cursor-pointer"
                 >
                   <FaHorse />
                 </button>
@@ -101,7 +101,7 @@ function AnimalSearch() {
                 <button
                   onClick={searchType}
                   value="bird"
-                  className="badge badge-secondary badge-outline hover:bg-rose-100 w-32 h-24 mx-5 rounded-lg text-2xl cursor-pointer"
+                  className="badge badge-secondary badge-outline hover:bg-rose-100 w-32 h-24 mx-5 rounded-lg text-5xl cursor-pointer"
                 >
                   <FaCrow />
                 </button>
@@ -110,7 +110,7 @@ function AnimalSearch() {
                 <button
                   onClick={searchType}
                   value="rabbit"
-                  className="badge badge-secondary badge-outline hover:bg-rose-100 w-32 h-24 mx-5 rounded-lg text-2xl cursor-pointer"
+                  className="badge badge-secondary badge-outline hover:bg-rose-100 w-32 h-24 mx-5 rounded-lg text-5xl cursor-pointer"
                 >
                   <GiRabbit />
                 </button>

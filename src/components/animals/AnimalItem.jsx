@@ -2,6 +2,8 @@ import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import PawPrint from "../../assets/pawprint.png";
 import PetFinderContext from "../context/PetFinderContext";
+import { AiFillHeart, AiOutlineHeart } from "react-icons/ai";
+import "animate.css";
 
 function AnimalItem({ animal }) {
   const { addToWishlist, removeFromWishlist } = useContext(PetFinderContext);
@@ -34,7 +36,10 @@ function AnimalItem({ animal }) {
   };
 
   return (
-    <div className="card shadow-xl h-80" data-theme="valentine">
+    <div
+      className="card shadow-xl h-80 w-[30rem] animate__animated animate__fadeIn ml-8 hover:scale-105 transition-transform ease-out duration-300 "
+      data-theme="valentine"
+    >
       <div className="avatar max-h-56">
         <figure className="rounded w-40 h-40 m-5">
           <img src={backgroundImage} alt="Animal" />
@@ -43,8 +48,8 @@ function AnimalItem({ animal }) {
           <h2
             className={
               animal.name.length > 10
-                ? " truncate text-xl text-zinc-900 mt-2 "
-                : "text-4xl text-zinc-900 mt-4"
+                ? " truncate text-xl text-zinc-700 mt-2 "
+                : "text-4xl text-zinc-700 mt-4"
             }
           >
             {animal.name}
@@ -59,15 +64,11 @@ function AnimalItem({ animal }) {
             {animal.gender}
           </p>
 
-          <p className="badge badge-neutral badge-outline ml-2 text-rose-50">
-            {animal.age}
-          </p>
+          <p className="badge badge-outline ml-2">{animal.age}</p>
           <div className="mt-2 ml-1">
             <h1
               className={
-                animal.breeds.primary.length > 15
-                  ? "text-sm text-rose-50"
-                  : "text-xl text-rose-50"
+                animal.breeds.primary.length > 15 ? "text-sm" : "text-xl"
               }
             >
               {animal.breeds.primary}
@@ -89,13 +90,13 @@ function AnimalItem({ animal }) {
           <form onSubmit={handleSubmit}>
             <button type="submit">
               {wishlist ? (
-                <div className="wishlist-icon-container absolute bottom-12 right-5 ">
-                  derp
-                </div>
+                <i className="wishlist-icon-container absolute bottom-8 right-7 text-5xl">
+                  <AiOutlineHeart />
+                </i>
               ) : (
-                <div className="wishlist-icon-container absolute bottom-12 right-5 text-rose-200  ">
-                  derp
-                </div>
+                <i className="wishlist-icon-container absolute bottom-8 right-7 text-5xl ">
+                  <AiFillHeart />
+                </i>
               )}
             </button>
           </form>
