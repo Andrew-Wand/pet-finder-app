@@ -6,6 +6,8 @@
 
 body {
   font-family: "Fredoka One", sans-serif;
+  background-image: url("./assets/floralpattern.jpg");
+  background-size: contain;
 }
 
 .home-img {

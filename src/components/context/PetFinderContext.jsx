@@ -94,6 +94,9 @@ export const PetFinderProvider = ({ children }) => {
   const currentPost = animals.slice(firstPostIndex, lastPostIndex);
   const totalPosts = animals.length;
 
+  // Sorting stuff
+  const [sortState, setSortState] = useState("none");
+
   return (
     <PetFinderContext.Provider
       value={{
@@ -111,6 +114,8 @@ export const PetFinderProvider = ({ children }) => {
         postPerPage,
         currentPage,
         setCurrentPage,
+        sortState,
+        setSortState,
       }}
     >
       {children}

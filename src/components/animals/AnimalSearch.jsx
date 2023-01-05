@@ -63,7 +63,7 @@ function AnimalSearch() {
           <button
             onClick={searchType}
             value="dog"
-            className="animate__animated animate__fadeInDown badge badge-secondary badge-outline hover:bg-rose-100 w-32 h-24 mx-5 rounded-lg text-5xl "
+            className="animate__animated animate__fadeInDown badge badge-secondary badge-outline hover:bg-rose-100 w-32 h-24 mx-5 rounded-lg text-5xl bg-[#8785a2] "
           >
             <FaDog />
           </button>
