@@ -35,9 +35,9 @@ function AnimalSearch() {
   };
 
   return (
-    <div className="w-6/12 lg:w-full mt-48">
-      <div data-theme="pastel">
-        <form onSubmit={handleSubmit}>
+    <div className="w-6/12 lg:w-full mt-48 align-center">
+      <div data-theme="pastel" className="bg-transparent">
+        {/* <form onSubmit={handleSubmit}>
           <div className="form-control">
             <div className="relative animate__animated animate__fadeIn ">
               <input
@@ -56,43 +56,43 @@ function AnimalSearch() {
               </button>
             </div>
           </div>
-        </form>
+        </form> */}
 
         {/* Buttons below input and drop down menu */}
-        <div className="flex flex-row justify-center mt-10">
+        <div className="flex flex-row justify-center mt-24 bg-[#F9C9EB]/60 p-8 rounded-xl drop-shadow-lg">
           <button
             onClick={searchType}
             value="dog"
-            className="animate__animated animate__fadeInDown badge badge-secondary badge-outline hover:bg-rose-100 w-32 h-24 mx-5 rounded-lg text-5xl bg-[#8785a2] "
+            className="animate__animated animate__fadeInLeft animate__delay-3s badge text-rose-400 badge-outline hover:bg-rose-100 w-32 h-24 mx-5 rounded-lg text-5xl"
           >
             <FaDog />
           </button>
           <button
             onClick={searchType}
             value="cat"
-            className="animate__animated animate__fadeInDown badge badge-secondary badge-outline hover:bg-rose-100 w-32 h-24 mx-5 rounded-lg text-5xl"
+            className="animate__animated animate__fadeInLeft animate__delay-2s badge text-rose-400 badge-outline hover:bg-rose-100 w-32 h-24 mx-5 rounded-lg text-5xl"
           >
             <FaCat />
           </button>
 
           {/* DROPDOWN FOR OTHER */}
 
-          <div className="dropdown">
+          <div className="dropdown dropdown-end">
             <label
               tabIndex={0}
-              className="animate__animated animate__fadeInDown badge badge-secondary badge-outline hover:bg-rose-100 w-32 h-24 mx-5 rounded-lg text-2xl cursor-pointer"
+              className="animate__animated animate__fadeInLeft animate__delay-1s badge text-rose-400 badge-outline hover:bg-rose-100 w-32 h-24 mx-5 rounded-lg text-2xl cursor-pointer"
             >
               Other
             </label>
             <ul
               tabIndex={0}
-              className="dropdown-content p-4 shadow-xl bg-base-100 rounded-box w-[34rem] flex flex-row justify-evenly"
+              className="dropdown-content p-5 rounded-box w-[34rem] flex flex-row justify-evenly mt-10 bg-transparent"
             >
               <li>
                 <button
                   onClick={searchType}
                   value="horse"
-                  className="badge badge-secondary badge-outline hover:bg-rose-100 w-32 h-24 mx-5 rounded-lg text-5xl cursor-pointer"
+                  className=" badge text-rose-400 badge-outline hover:bg-rose-100 w-32 h-24 mx-5 rounded-lg text-5xl cursor-pointer"
                 >
                   <FaHorse />
                 </button>
@@ -101,7 +101,7 @@ function AnimalSearch() {
                 <button
                   onClick={searchType}
                   value="bird"
-                  className="badge badge-secondary badge-outline hover:bg-rose-100 w-32 h-24 mx-5 rounded-lg text-5xl cursor-pointer"
+                  className="badge text-rose-400 badge-outline hover:bg-rose-100 w-32 h-24 mx-5 rounded-lg text-5xl cursor-pointer"
                 >
                   <FaCrow />
                 </button>
@@ -110,7 +110,7 @@ function AnimalSearch() {
                 <button
                   onClick={searchType}
                   value="rabbit"
-                  className="badge badge-secondary badge-outline hover:bg-rose-100 w-32 h-24 mx-5 rounded-lg text-5xl cursor-pointer"
+                  className="badge text-rose-400 badge-outline hover:bg-rose-100 w-32 h-24 mx-5 rounded-lg text-5xl cursor-pointer"
                 >
                   <GiRabbit />
                 </button>

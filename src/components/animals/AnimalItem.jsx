@@ -6,9 +6,9 @@ import { AiFillHeart, AiOutlineHeart } from "react-icons/ai";
 import "animate.css";
 
 function AnimalItem({ animal }) {
-  const { addToWishlist, removeFromWishlist } = useContext(PetFinderContext);
+  const { addToWishlist, removeFromWishlist, wishlist, setWishlist } =
+    useContext(PetFinderContext);
 
-  const [wishlist, setWishlist] = useState(true);
   // const [localwishlist, setLocalWishlist] = useLocalStorage("wishlist", true);
 
   let backgroundImage =
@@ -94,7 +94,7 @@ function AnimalItem({ animal }) {
                   <AiOutlineHeart />
                 </i>
               ) : (
-                <i className="wishlist-icon-container absolute bottom-8 right-7 text-5xl ">
+                <i className="wishlist-icon-container absolute bottom-8 right-7 text-5xl">
                   <AiFillHeart />
                 </i>
               )}

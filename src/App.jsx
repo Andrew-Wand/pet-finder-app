@@ -7,6 +7,8 @@ import NotFound from "./components/pages/NotFound";
 import { PetFinderProvider } from "./components/context/PetFinderContext";
 import Animal from "./components/pages/Animal";
 import Search from "./components/pages/Search";
+import ScrollToTop from "react-scroll-to-top";
+import { HiArrowUp } from "react-icons/hi";
 
 function App() {
   return (
@@ -23,6 +25,13 @@ function App() {
               <Route path="/animals/:id" element={<Animal />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
+            <ScrollToTop
+              smooth
+              component={
+                <HiArrowUp style={{ fontSize: "30px", marginLeft: "5px" }} />
+              }
+              style={{ fontSize: "30px", backgroundColor: "#f0d6e8" }}
+            />
           </main>
           <Footer />
         </div>

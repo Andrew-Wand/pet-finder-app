@@ -5,11 +5,17 @@ import "animate.css";
 
 function Home() {
   return (
-    <div className="home-wrapper flex justify-evenly relative">
-      <div className="home-title absolute left-32 top-24 cursor-default">
-        <h1 className="text-5xl animate__animated animate__fadeIn">
+    <div className="home-wrapper flex justify-evenly relative bg-[#FFF3F4] p-10 rounded-3xl shadow-2xl">
+      <div className="home-title absolute left-24 top-20 cursor-default">
+        <h1 className="text-6xl animate__animated animate__fadeIn">
           Welcome to Petopia!
         </h1>
+        <p
+          className="text-lg mt-10 alert p-5 justify-center drop-shadow-lg w-10/12 ml-10"
+          data-theme="valentine"
+        >
+          Choose a category and find your next pet!
+        </p>
       </div>
 
       <AnimalSearch />

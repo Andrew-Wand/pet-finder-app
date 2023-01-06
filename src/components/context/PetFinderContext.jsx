@@ -69,6 +69,7 @@ export const PetFinderProvider = ({ children }) => {
 
   // Wishlist stuff
   const [wishListArr, setWishListArr] = useLocalStorage("wishListArr", []);
+  const [wishlist, setWishlist] = useState(true);
 
   const addToWishlist = (item) => {
     setWishListArr([item, ...wishListArr]);
@@ -95,7 +96,7 @@ export const PetFinderProvider = ({ children }) => {
   const totalPosts = animals.length;
 
   // Sorting stuff
-  const [sortState, setSortState] = useState("none");
+  const [sortState, setSortState] = useState("DEFAULT");
 
   return (
     <PetFinderContext.Provider
@@ -116,6 +117,9 @@ export const PetFinderProvider = ({ children }) => {
         setCurrentPage,
         sortState,
         setSortState,
+        animals,
+        wishlist,
+        setWishlist,
       }}
     >
       {children}
