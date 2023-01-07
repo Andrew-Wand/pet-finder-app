@@ -1,9 +1,12 @@
 import { useContext } from "react";
+import { useNavigate } from "react-router-dom";
 import WishlistItem from "../animals/WishlistItem";
 import PetFinderContext from "../context/PetFinderContext";
 
 function Wishlist() {
   const { uniqueWishlist } = useContext(PetFinderContext);
+
+  const navigate = useNavigate();
 
   return (
     <div>

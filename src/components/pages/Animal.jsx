@@ -3,10 +3,18 @@ import PetFinderContext from "../context/PetFinderContext";
 import { useParams } from "react-router-dom";
 import Flickity from "react-flickity-component";
 import { AiFillHeart, AiOutlineHeart } from "react-icons/ai";
+import useLocalStorage from "../hooks/useLocalStorage";
 
 function Animal({ animal }) {
-  const { getAnimal, animalPage, dispatch, wishlist } =
-    useContext(PetFinderContext);
+  const {
+    getAnimal,
+    animalPage,
+    dispatch,
+    wishlist,
+    uniqueWishlist,
+    addToWishlist,
+    removeFromWishlist,
+  } = useContext(PetFinderContext);
 
   const params = useParams();
 
@@ -29,23 +37,35 @@ function Animal({ animal }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     const wishItem = {
-      id: animal.id,
-      name: animal.name,
-      img: animal.photos,
-      gender: animal.gender,
-      age: animal.age,
-      breed: animal.breeds.primary,
-      description: animal.description,
-      checked: wishlist,
+      id: animalPage.animal.id,
+      name: animalPage.animal.name,
+      img: animalPage.animal.photos,
+      gender: animalPage.animal.gender,
+      age: animalPage.animal.age,
+      breed: animalPage.animal.breeds.primary,
+      description: animalPage.animal.description,
+      checked: profileWishlist,
     };
 
-    if (wishItem.checked === true) {
+    if (wishItem.checked === false) {
       addToWishlist(wishItem);
     } else {
-      removeFromWishlist(animal.id);
+      removeFromWishlist(animalPage.animal.id);
     }
-    setWishlist(!wishlist);
+    setProfileWishlist(!profileWishlist);
   };
+
+  const isFound = uniqueWishlist.some((element) => {
+    if (element.id === animalPage.animal?.id) {
+      return true;
+    }
+    return false;
+  });
+
+  const [profileWishlist, setProfileWishlist] = useLocalStorage(
+    "profileWishlist",
+    isFound
+  );
 
   return (
     <div
@@ -59,13 +79,13 @@ function Animal({ animal }) {
               {animalPage.animal?.name}
               <form onSubmit={handleSubmit}>
                 <button type="submit">
-                  {wishlist ? (
+                  {isFound ? (
                     <i className="wishlist-icon-container absolute bottom-8 right-7 text-5xl">
-                      <AiOutlineHeart />
+                      <AiFillHeart />
                     </i>
                   ) : (
                     <i className="wishlist-icon-container absolute bottom-8 right-7 text-5xl">
-                      <AiFillHeart />
+                      <AiOutlineHeart />
                     </i>
                   )}
                 </button>

@@ -6,10 +6,21 @@ import { AiFillHeart, AiOutlineHeart } from "react-icons/ai";
 import "animate.css";
 
 function AnimalItem({ animal }) {
-  const { addToWishlist, removeFromWishlist, wishlist, setWishlist } =
-    useContext(PetFinderContext);
+  const {
+    addToWishlist,
+    removeFromWishlist,
+    wishlist,
+    setWishlist,
+    uniqueWishlist,
+  } = useContext(PetFinderContext);
 
-  // const [localwishlist, setLocalWishlist] = useLocalStorage("wishlist", true);
+  const isFound = uniqueWishlist.some((element) => {
+    if (element.id === animal.id) {
+      return true;
+    }
+
+    return false;
+  });
 
   let backgroundImage =
     animal.photos.length > 0 ? animal.photos[0].large : PawPrint;
@@ -27,9 +38,11 @@ function AnimalItem({ animal }) {
       checked: wishlist,
     };
 
-    if (wishItem.checked === true) {
+    if (wishItem.checked === false) {
+      animal.clicked = true;
       addToWishlist(wishItem);
     } else {
+      animal.clicked = false;
       removeFromWishlist(animal.id);
     }
     setWishlist(!wishlist);
@@ -89,13 +102,13 @@ function AnimalItem({ animal }) {
 
           <form onSubmit={handleSubmit}>
             <button type="submit">
-              {wishlist ? (
+              {isFound ? (
                 <i className="wishlist-icon-container absolute bottom-8 right-7 text-5xl">
-                  <AiOutlineHeart />
+                  <AiFillHeart />
                 </i>
               ) : (
                 <i className="wishlist-icon-container absolute bottom-8 right-7 text-5xl">
-                  <AiFillHeart />
+                  <AiOutlineHeart />
                 </i>
               )}
             </button>

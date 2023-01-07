@@ -11,6 +11,7 @@ export const PetFinderProvider = ({ children }) => {
   const initialState = {
     animalsArray: [],
     animalPage: {},
+    inWishlist: [],
   };
 
   const [state, dispatch] = useReducer(petFinderReducer, initialState);
@@ -69,7 +70,7 @@ export const PetFinderProvider = ({ children }) => {
 
   // Wishlist stuff
   const [wishListArr, setWishListArr] = useLocalStorage("wishListArr", []);
-  const [wishlist, setWishlist] = useState(true);
+  const [wishlist, setWishlist] = useState(false);
 
   const addToWishlist = (item) => {
     setWishListArr([item, ...wishListArr]);
