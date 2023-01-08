@@ -9,6 +9,7 @@ import Animal from "./components/pages/Animal";
 import Search from "./components/pages/Search";
 import ScrollToTop from "react-scroll-to-top";
 import { HiArrowUp } from "react-icons/hi";
+import FormComplete from "./components/pages/FormComplete";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/wishlist" element={<WishList />} />
+              <Route path="/adoption-request" element={<FormComplete />} />
               <Route path="/search" element={<Search />} />
               <Route path="/animals/:id" element={<Animal />} />
               <Route path="*" element={<NotFound />} />

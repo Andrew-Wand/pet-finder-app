@@ -1,6 +1,6 @@
 import { useEffect, useContext } from "react";
 import PetFinderContext from "../context/PetFinderContext";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import Flickity from "react-flickity-component";
 import { AiFillHeart, AiOutlineHeart } from "react-icons/ai";
 import useLocalStorage from "../hooks/useLocalStorage";
@@ -17,6 +17,7 @@ function Animal({ animal }) {
   } = useContext(PetFinderContext);
 
   const params = useParams();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const getAnimalData = async () => {
@@ -77,19 +78,6 @@ function Animal({ animal }) {
           <div className="flex items-center gap-5">
             <h2 className="text-5xl mb-3 card-title text-red-300 ">
               {animalPage.animal?.name}
-              <form onSubmit={handleSubmit}>
-                <button type="submit">
-                  {isFound ? (
-                    <i className="wishlist-icon-container absolute bottom-8 right-7 text-5xl">
-                      <AiFillHeart />
-                    </i>
-                  ) : (
-                    <i className="wishlist-icon-container absolute bottom-8 right-7 text-5xl">
-                      <AiOutlineHeart />
-                    </i>
-                  )}
-                </button>
-              </form>
             </h2>
 
             <div>
@@ -99,8 +87,8 @@ function Animal({ animal }) {
               <p
                 className={
                   animalPage.animal?.gender === "Male"
-                    ? "badge badge-primary ml-2 p-2.5"
-                    : "badge badge-secondary ml-2 p-2.5"
+                    ? "badge badge-accent ml-2 p-2.5"
+                    : "badge badge-primary ml-2 p-2.5"
                 }
               >
                 {animalPage.animal?.gender}
@@ -109,14 +97,14 @@ function Animal({ animal }) {
           </div>
 
           {/* CAROUSEL */}
-          <div className="ml-0 w-full lg:w-[40rem]  rounded-xl">
+          <div className="ml-0 w-full lg:w-[40rem]">
             {animalPage.animal?.photos.length > 2 ? (
               <Flickity options={flickityOptions}>
                 {animalPage.animal?.photos.map((item, index) => (
                   <img
                     key={index}
-                    className="petCarousel-body-slide h-80 rounded shadow-xl"
-                    src={item.medium}
+                    className="petCarousel-body-slide h-[160px] w-[50%] shadow-xl mr-[10px]"
+                    src={item.large}
                     alt="animal"
                   />
                 ))}
@@ -127,27 +115,19 @@ function Animal({ animal }) {
               </figure>
             )}
           </div>
-
+          {/* END CAROUSEL */}
           <div
-            className="card shadow-lg h-[25%] w-[43%] items-center flex justify-center absolute  bottom-[4rem] border-2"
+            className="card shadow-2xl h-[17%] w-[43%] items-center flex justify-center absolute bottom-[30px] bg-[#81567C] right-[40px]"
             data-theme="valentine"
           >
-            <div className="card-title   mb-6 text-2xl ">
-              Interested in <span className="">{animalPage.animal?.name}</span>?
+            <div className="card-title mb-6 text-2xl text-gray-200">
+              Interested in
+              <span className="text-red-300">{animalPage.animal?.name}</span>?
             </div>
-            <div className="justify-evenly w-full flex">
-              <button
-                onClick={(e) => onClick(e)}
-                className="py-2 px-5 rounded-xl mb-5 shadow-lg hover:shadow-xl  border-2 border-orange-300 hover:border-orange-300 text-indigo-400 hover:bg-orange-100"
-              >
-                Add To Wishlist <i className="fa-regular fa-heart px-2 py-3" />
-              </button>
-              <div className="divider">
-                <i className="fa-solid fa-worm text-indigo-400"></i>
-              </div>
+            <div className="justify-center w-full flex">
               <label
                 htmlFor="adopt-modal"
-                className="py-2 cursor-pointer flex items-center px-10 rounded-xl mb-5 shadow-lg hover:shadow-xl  border-2 border-orange-300 hover:border-orange-300 text-indigo-400 hover:bg-orange-100"
+                className="py-2 cursor-pointer flex items-center px-10 rounded-xl mb-5 shadow-lg hover:shadow-xl border-2 border-orange-300 hover:border-orange-300 hover:bg-orange-100 text-gray-200 hover:text-black"
               >
                 Begin Inquiry
               </label>
@@ -155,10 +135,24 @@ function Animal({ animal }) {
           </div>
         </div>
       </div>
-      <div className=" rounded border-2 shadow-lg">
-        <h2 className="font-bold mt-10 text-3xl  underline text-center">
-          A Little About Me...
+      <div className=" rounded-xl shadow-xl bg-[#FFFDE4]">
+        <form onSubmit={handleSubmit}>
+          <button type="submit">
+            {isFound ? (
+              <i className="wishlist-icon-container absolute top-8 right-10 text-6xl text-red-300">
+                <AiFillHeart />
+              </i>
+            ) : (
+              <i className="wishlist-icon-container absolute top-8 right-10 text-6xl text-red-300">
+                <AiOutlineHeart />
+              </i>
+            )}
+          </button>
+        </form>
+        <h2 className="mt-2 text-5xl text-center underline text-red-300">
+          About {animalPage.animal?.name}
         </h2>
+
         <div className="m-10">
           <div>
             <h1 className="text-2xl font-bold mb-2 underline ">Personality</h1>
@@ -248,6 +242,58 @@ function Animal({ animal }) {
             </div>
           </div>
         </div>
+        {/* MODAL */}
+        <input type="checkbox" id="adopt-modal" className="modal-toggle" />
+        <form
+          className="modal modal-bottom sm:modal-middle"
+          onSubmit={() => navigate("/adoption-request")}
+        >
+          <div className="modal-box">
+            <h1 className="font-bold text-3xl text-center text-red-400">
+              Adoption Request Form
+            </h1>
+            <div className="flex flex-col p-4 m-1">
+              <label className="text-xl my-3 ">Name:</label>
+              <input
+                required
+                className="p-2 rounded-xl"
+                type="text"
+                placeholder="Enter name here..."
+              />
+
+              <label className="text-xl my-4">Email:</label>
+              <input
+                required
+                className="p-2 rounded-xl"
+                type="email"
+                placeholder="Enter email here..."
+              />
+
+              <label className="text-xl my-4">Phone Number:</label>
+              <input
+                required
+                className="p-2 rounded-xl"
+                type="text"
+                placeholder="(999)-999-9999"
+              />
+
+              <label className="text-xl my-3">Description of Home:</label>
+              <textarea
+                required
+                className="textarea resize-none border-2 text-sm p-2"
+                data-theme="light"
+              ></textarea>
+            </div>
+            <div className="modal-action">
+              <label htmlFor="adopt-modal" className="btn">
+                Close
+              </label>
+              <button className="btn" type="submit">
+                Submit
+              </button>
+            </div>
+          </div>
+        </form>
       </div>
     </div>
   );

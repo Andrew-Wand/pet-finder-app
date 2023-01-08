@@ -109,9 +109,9 @@ svg {
 /* ---- previous/next buttons ---- */
 
 .flickity-prev-next-button {
-  top: 50%;
-  width: 44px;
-  height: 44px;
+  top: 88%;
+  width: 30px;
+  height: 30px;
   border-radius: 50%;
   /* vertically center */
   transform: translateY(-50%);
@@ -146,7 +146,7 @@ svg {
 .flickity-page-dots {
   position: absolute;
   width: 100%;
-  bottom: -25px;
+  bottom: 10px;
   padding: 0;
   margin: 0;
   list-style: none;
@@ -163,9 +163,9 @@ svg {
   width: 10px;
   height: 10px;
   margin: 0 8px;
-  background: red;
+  background: white;
   border-radius: 50%;
-  opacity: 0.25;
+  opacity: 0.5;
   cursor: pointer;
 }
 
