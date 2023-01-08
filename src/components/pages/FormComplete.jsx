@@ -5,7 +5,7 @@ function FormComplete() {
   const navigate = useNavigate();
   return (
     <div>
-      <div className="home-wrapper flex justify-evenly relative bg-[#FFF3F4] p-10 rounded-3xl shadow-2xl">
+      <div className="home-wrapper flex justify-evenly relative bg-[#FFFEDD] p-10 rounded-3xl shadow-2xl">
         <div className="home-title cursor-default p-10">
           <h1 className="text-3xl w-full text-center ml-10">
             Thank you for your inquiry!

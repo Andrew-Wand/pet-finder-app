@@ -11,9 +11,33 @@ function Wishlist() {
   return (
     <div>
       <div className="grid grid-cols-1 xl:grid-cols-2 lg:grid-cols-2 md:grid-cols-2 mb-8 gap-8">
-        {uniqueWishlist?.map((item) => (
+        {uniqueWishlist.length > 0 ? (
+          uniqueWishlist?.map((item) => (
+            <WishlistItem key={item.id} item={item} />
+          ))
+        ) : (
+          <div className="bg-[#FFFEDD] h-96 rounded-xl shadow-2xl  flex flex-col p-10 justify-evenly">
+            <div>
+              <h1 className="text-3xl text-center">
+                You do not have anything on your wishlist!
+              </h1>
+            </div>
+
+            <div className="text-center">
+              <button
+                className="btn btn-primary w-4/12 hover:bg-[#fff]"
+                data-theme="valentine"
+                onClick={() => navigate("/")}
+              >
+                Back To Home
+              </button>
+            </div>
+          </div>
+        )}
+
+        {/* {uniqueWishlist?.map((item) => (
           <WishlistItem key={item.id} item={item} />
-        ))}
+        ))} */}
       </div>
     </div>
   );

@@ -5,7 +5,7 @@ import "animate.css";
 
 function Home() {
   return (
-    <div className="home-wrapper flex justify-evenly relative bg-[#FFF3F4] p-10 rounded-3xl shadow-2xl">
+    <div className="home-wrapper flex justify-evenly relative bg-[#FFFEDD] p-10 rounded-3xl shadow-2xl">
       <div className="home-title absolute left-24 top-20 cursor-default">
         <h1 className="text-6xl animate__animated animate__fadeIn">
           Welcome to Petopia!
