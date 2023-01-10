@@ -1,4 +1,4 @@
-import { useState, useContext } from "react";
+import { useState, useContext, useRef } from "react";
 import PetFinderContext from "../context/PetFinderContext";
 import { FaDog, FaCat, FaHorse, FaCrow } from "react-icons/fa";
 import { GiRabbit } from "react-icons/gi";
@@ -36,10 +36,15 @@ function AnimalSearch() {
 
   const [dropClass, setDropClass] = useState(false);
 
-  let dropDownClassName =
-    "flex flex-row justify-center mt-12 bg-[#F9C9EB]/90 p-8 rounded-xl shadow-xl search-icons";
+  const buttonRef = useRef(null);
 
   const handleDrop = () => {
+    if (dropClass) {
+      buttonRef.current.blur();
+    } else {
+      buttonRef.current.focus();
+    }
+
     setDropClass(!dropClass);
   };
 
@@ -71,8 +76,8 @@ function AnimalSearch() {
         <div
           className={
             dropClass
-              ? "flex flex-row justify-center mt-12 bg-[#F9C9EB]/90 p-8 rounded-xl shadow-xl search-icons"
-              : "flex flex-row justify-center mt-12 bg-[#F9C9EB]/90 p-8 rounded-xl shadow-xl search-icons active"
+              ? "flex flex-row justify-center mt-12 bg-[#F9C9EB]/90 p-8 rounded-xl shadow-xl search-icons active"
+              : "flex flex-row justify-center mt-12 bg-[#F9C9EB]/90 p-8 rounded-xl shadow-xl search-icons "
           }
         >
           <button
@@ -92,23 +97,31 @@ function AnimalSearch() {
 
           {/* DROPDOWN FOR OTHER */}
 
-          <div className="dropdown dropdown-end">
+          <div
+            className={
+              dropClass
+                ? "dropdown dropdown-open flex"
+                : "dropdown dropdown-end flex"
+            }
+          >
             <label
               tabIndex={0}
-              className="animate__animated animate__fadeInLeft animate__delay-1s badge text-rose-400 badge-outline hover:bg-rose-100 w-[4rem] h-[5rem] lg:w-32 lg:h-24 lg:mx-5 mx-2 rounded-lg lg:text-2xl cursor-pointer shadow-md"
+              className="animate__animated animate__fadeInLeft animate__delay-1s badge text-rose-700 badge-outline hover:bg-rose-100 w-[4rem] h-[5rem] lg:w-32 lg:h-24 lg:mx-5 mx-2 rounded-lg lg:text-2xl cursor-pointer shadow-md"
               onClick={handleDrop}
+              ref={buttonRef}
             >
               Other
             </label>
+
             <ul
               tabIndex={0}
-              className="dropdown-content p-5 rounded-box lg:w-[32rem] w-[17rem] flex flex-row justify-evenly lg:mt-6 mt-2 lg:ml-5 bg-transparent"
+              className=" dropdown-content flex justify-evenly mt-10 absolute top-20 left-[-160px] xl:left-[-338px] "
             >
               <li>
                 <button
                   onClick={searchType}
                   value="horse"
-                  className=" badge text-rose-400 badge-outline hover:bg-rose-100 w-[70px] h-[5rem] lg:w-32 lg:h-24 lg:mx-5 rounded-lg text-5xl cursor-pointer"
+                  className=" animate__animated animate__fadeIn badge text-rose-400 badge-outline hover:bg-rose-100 w-[68px] h-[5rem] lg:w-32 lg:h-24 lg:mx-5 rounded-lg text-5xl cursor-pointer mr-2 shadow-md"
                 >
                   <FaHorse />
                 </button>
@@ -117,7 +130,7 @@ function AnimalSearch() {
                 <button
                   onClick={searchType}
                   value="bird"
-                  className="badge text-rose-400 badge-outline hover:bg-rose-100 w-[70px] h-[5rem] lg:w-32 lg:h-24 lg:mx-5  rounded-lg text-5xl cursor-pointer"
+                  className="badge text-rose-400 badge-outline hover:bg-rose-100 w-[68px] h-[5rem] lg:w-32 lg:h-24 lg:mx-5  rounded-lg text-5xl cursor-pointer mx-2 shadow-md"
                 >
                   <FaCrow />
                 </button>
@@ -126,7 +139,7 @@ function AnimalSearch() {
                 <button
                   onClick={searchType}
                   value="rabbit"
-                  className="badge text-rose-400 badge-outline hover:bg-rose-100 w-[70px] h-[5rem] lg:w-32 lg:h-24 lg:mx-5  rounded-lg text-5xl cursor-pointer"
+                  className="badge text-rose-400 badge-outline hover:bg-rose-100 w-[68px] h-[5rem] lg:w-32 lg:h-24 lg:mx-5  rounded-lg text-5xl cursor-pointer mx-2 shadow-md"
                 >
                   <GiRabbit />
                 </button>

@@ -30,9 +30,11 @@ function App() {
             <ScrollToTop
               smooth
               component={
-                <HiArrowUp style={{ fontSize: "30px", marginLeft: "5px" }} />
+                <HiArrowUp
+                  style={{ fontSize: "30px", marginLeft: "5px", color: "#fff" }}
+                />
               }
-              style={{ fontSize: "30px", backgroundColor: "#f0d6e8" }}
+              style={{ fontSize: "30px", backgroundColor: "#000" }}
             />
           </main>
           <Footer />

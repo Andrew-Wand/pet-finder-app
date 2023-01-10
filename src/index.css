@@ -32,6 +32,7 @@ svg {
 
 .search-icons {
   height: 10rem;
+  transition: height 0.3s ease;
 }
 
 .search-icons.active {
