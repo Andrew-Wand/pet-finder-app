@@ -50,7 +50,7 @@ function AnimalItem({ animal }) {
 
   return (
     <div
-      className="card shadow-xl h-80 w-[30rem] animate__animated animate__fadeIn ml-8 hover:scale-105 transition-transform ease-out duration-300 "
+      className="card shadow-xl w-[21rem] h-[21rem] xl:h-80 xl:w-[30rem] animate__animated animate__fadeIn ml-8 mb-10 xl:mb-0 hover:scale-105 transition-transform ease-out duration-300  "
       data-theme="valentine"
     >
       <div className="avatar max-h-56">
@@ -62,7 +62,7 @@ function AnimalItem({ animal }) {
             className={
               animal.name.length > 10
                 ? " truncate text-xl text-zinc-700 mt-2 "
-                : "text-4xl text-zinc-700 mt-4"
+                : "xl:text-4xl text-2xl text-zinc-700 mt-4"
             }
           >
             {animal.name}
@@ -94,7 +94,7 @@ function AnimalItem({ animal }) {
       <div className="card-body relative">
         <div className="card-actions justify-center">
           <Link
-            className="btn btn-accent absolute bottom-8 btn-wide rounded-lg text-lg shadow-lg"
+            className="btn btn-accent absolute bottom-8 left-12 xl:left-24 btn-md xl:btn-wide rounded-lg text-lg shadow-lg"
             to={`/animals/${animal.id}`}
           >
             View Pet
@@ -103,11 +103,11 @@ function AnimalItem({ animal }) {
           <form onSubmit={handleSubmit}>
             <button type="submit">
               {isFound ? (
-                <i className="wishlist-icon-container absolute bottom-8 right-7 text-5xl">
+                <i className="wishlist-icon-container absolute right-12 bottom-8 xl:bottom-8 xl:right-7 text-5xl">
                   <AiFillHeart />
                 </i>
               ) : (
-                <i className="wishlist-icon-container absolute bottom-8 right-7 text-5xl">
+                <i className="wishlist-icon-container absolute right-12 bottom-8 xl:bottom-8 xl:right-7 text-5xl">
                   <AiOutlineHeart />
                 </i>
               )}

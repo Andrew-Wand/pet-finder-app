@@ -14,7 +14,7 @@ function Pagination() {
   return (
     <div>
       <div
-        className="bg-transparent flex justify-center ml-40 p-8"
+        className="bg-transparent flex justify-center xl:ml-40 p-8"
         data-theme="valentine"
       >
         {pages.map((page, index) => {

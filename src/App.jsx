@@ -18,7 +18,7 @@ function App() {
         <div className="flex flex-col justify-between">
           <Navbar title={"Petopia"} />
 
-          <main className="container px-3 pb-12 ml-40">
+          <main className="lg:container px-3 pb-12 lg:ml-40">
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/wishlist" element={<WishList />} />

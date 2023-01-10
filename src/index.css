@@ -30,6 +30,14 @@ svg {
   pointer-events: none;
 }
 
+.search-icons {
+  height: 10rem;
+}
+
+.search-icons.active {
+  height: 18rem;
+}
+
 /* Filickity stuff */
 .flickity-enabled {
   position: relative;

@@ -33,7 +33,7 @@ function AnimalResults() {
     return (
       <div className="results-wrapper">
         <Sorting />
-        <div className="grid grid-cols-1 gap-12 xl:grid-cols-3 lg:grid-cols-2 md:grid-cols-2">
+        <div className="grid grid-cols-1 lg:gap-12 xl:grid-cols-3 lg:grid-cols-3 md:grid-cols-2">
           {currentPost?.map((animal) => (
             <div>
               <AnimalItem key={animal.id} animal={animal} />

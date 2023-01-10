@@ -12,7 +12,7 @@ function WishlistItem({ item }) {
 
   return (
     <div
-      className="card shadow-xl h-80 w-[30rem] animate__animated animate__fadeIn "
+      className="card shadow-xl h-80 xl:w-[30rem] animate__animated animate__fadeIn "
       data-theme="valentine"
     >
       <div className="avatar">
@@ -52,7 +52,7 @@ function WishlistItem({ item }) {
       <div className="card-body relative">
         <div className="card-actions justify-center">
           <Link
-            className="btn btn-accent absolute bottom-8 btn-wide rounded-lg text-lg shadow-lg"
+            className="btn btn-accent absolute bottom-8 left-10 xl:left-20 btn-wide rounded-lg text-lg shadow-lg"
             to={`/animals/${item.id}`}
           >
             View Pet
