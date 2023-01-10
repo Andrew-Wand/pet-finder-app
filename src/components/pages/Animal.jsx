@@ -70,13 +70,13 @@ function Animal({ animal }) {
 
   return (
     <div
-      className="grid grid-cols-1 xl:grid-cols-2 lg:grid-cols-2 md:grid-cols-2 md:gap-8 h-[75vh] w-full rounded-xl p-5 drop-shadow-xl relative"
+      className="grid grid-cols-1 xl:grid-cols-2 lg:grid-cols-2 md:grid-cols-2 md:gap-8 xl:h-[75vh] w-full rounded-xl p-5 drop-shadow-xl relative"
       data-theme="valentine"
     >
       <div className="flex">
         <div className="ml-5">
           <div className="flex items-center gap-5">
-            <h2 className="text-5xl mb-3 card-title text-red-300 ">
+            <h2 className="xl:text-5xl text-3xl mb-3 card-title text-red-300 ">
               {animalPage.animal?.name}
             </h2>
 
@@ -97,13 +97,13 @@ function Animal({ animal }) {
           </div>
 
           {/* CAROUSEL */}
-          <div className="ml-0 w-full lg:w-[40rem]">
+          <div className="ml-0 w-full lg:w-[40rem] mt-5">
             {animalPage.animal?.photos.length > 2 ? (
               <Flickity options={flickityOptions}>
                 {animalPage.animal?.photos.map((item, index) => (
                   <img
                     key={index}
-                    className="petCarousel-body-slide h-[160px] w-[50%] shadow-xl mr-[10px]"
+                    className="petCarousel-body-slide xl:h-[160px] xl:w-[50%] shadow-xl mr-[10px]"
                     src={item.large}
                     alt="animal"
                   />
@@ -117,7 +117,7 @@ function Animal({ animal }) {
           </div>
           {/* END CAROUSEL */}
           <div
-            className="card shadow-2xl h-[17%] w-[43%] items-center flex justify-center absolute bottom-[30px] bg-[#81567C] right-[40px]"
+            className="card shadow-2xl xl:h-[17%] xl:w-[43%] items-center flex justify-center xl:absolute bottom-[30px] bg-[#81567C] xl:right-[40px] mt-10"
             data-theme="valentine"
           >
             <div className="card-title mb-6 text-2xl text-gray-200">
@@ -135,34 +135,36 @@ function Animal({ animal }) {
           </div>
         </div>
       </div>
-      <div className=" rounded-xl shadow-xl bg-[#FFFDE4]">
+      <div className="rounded-xl shadow-xl bg-[#FFFDE4] mt-5">
         <form onSubmit={handleSubmit}>
           <button type="submit">
             {isFound ? (
-              <i className="wishlist-icon-container absolute top-8 right-10 text-6xl text-red-300">
+              <i className="wishlist-icon-container absolute top-5 right-4 xl:top-8 xl:right-10 text-6xl text-red-300">
                 <AiFillHeart />
               </i>
             ) : (
-              <i className="wishlist-icon-container absolute top-8 right-10 text-6xl text-red-300">
+              <i className="wishlist-icon-container absolute xl:top-8 xl:right-10 text-6xl text-red-300">
                 <AiOutlineHeart />
               </i>
             )}
           </button>
         </form>
-        <h2 className="mt-2 text-5xl text-center underline text-red-300">
+        <h2 className="mt-2 xl:text-5xl text-3xl text-center underline text-red-300">
           About {animalPage.animal?.name}
         </h2>
 
         <div className="m-10">
           <div>
-            <h1 className="text-2xl font-bold mb-2 underline ">Personality</h1>
-            <p className="grid grid-cols-2">
+            <h1 className="xl:text-2xl text-lg font-bold mb-2 underline ">
+              Personality
+            </h1>
+            <p className="grid xl:grid-cols-2 grid-cols-2">
               {animalPage.animal?.tags.map((item, index) => (
                 <li key={index}>{item}</li>
               ))}
             </p>
 
-            <div className="grid grid-cols-2">
+            <div className="grid grid-cols-1">
               <li
                 className={
                   animalPage.animal?.environment.cats ? "" : "list-none"
@@ -205,8 +207,10 @@ function Animal({ animal }) {
           </div>
 
           <div>
-            <h1 className="text-2xl underline  font-bold">Details</h1>
-            <div className="flex flex-col justify-between h-[10rem]	 mt-3">
+            <h1 className="text-lg xl:text-2xl underline  font-bold">
+              Details
+            </h1>
+            <div className="flex flex-col justify-between xl:h-[6rem] mt-3">
               <p className="">
                 {animalPage.animal?.name} is
                 <span className=" font-bold">
