@@ -1,4 +1,4 @@
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import PetFinderContext from "../context/PetFinderContext";
 import AnimalItem from "./AnimalItem";
 import Pagination from "../layout/Pagination";
