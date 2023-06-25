@@ -83,12 +83,14 @@ function AnimalSearch() {
           <button
             onClick={searchType}
             value="dog"
+            aria-label="click to search for dogs"
             className="animate__animated animate__fadeInLeft animate__delay-3s badge text-rose-400 badge-outline hover:bg-rose-100 w-[5rem] h-[5rem] lg:w-32 lg:h-24 lg:mx-5 mx-2 rounded-lg text-5xl shadow-md"
           >
             <FaDog />
           </button>
           <button
             onClick={searchType}
+            aria-label="click to search for cats"
             value="cat"
             className="animate__animated animate__fadeInLeft animate__delay-2s badge text-rose-400 badge-outline hover:bg-rose-100 w-[5rem] h-[5rem] lg:w-32 lg:h-24 lg:mx-5 mx-2 rounded-lg text-5xl shadow-md"
           >
@@ -121,6 +123,7 @@ function AnimalSearch() {
                 <button
                   onClick={searchType}
                   value="horse"
+                  aria-label="click to search for horses"
                   className=" animate__animated animate__fadeIn badge text-rose-400 badge-outline hover:bg-rose-100 w-[68px] h-[5rem] lg:w-32 lg:h-24 lg:mx-5 rounded-lg text-5xl cursor-pointer mr-2 shadow-md"
                 >
                   <FaHorse />
@@ -130,6 +133,7 @@ function AnimalSearch() {
                 <button
                   onClick={searchType}
                   value="bird"
+                  aria-label="click to search for birds"
                   className="badge text-rose-400 badge-outline hover:bg-rose-100 w-[68px] h-[5rem] lg:w-32 lg:h-24 lg:mx-5  rounded-lg text-5xl cursor-pointer mx-2 shadow-md"
                 >
                   <FaCrow />
@@ -139,6 +143,7 @@ function AnimalSearch() {
                 <button
                   onClick={searchType}
                   value="rabbit"
+                  aria-label="click to search for rabbits"
                   className="badge text-rose-400 badge-outline hover:bg-rose-100 w-[68px] h-[5rem] lg:w-32 lg:h-24 lg:mx-5  rounded-lg text-5xl cursor-pointer mx-2 shadow-md"
                 >
                   <GiRabbit />
