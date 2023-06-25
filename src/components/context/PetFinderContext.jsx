@@ -1,5 +1,5 @@
 import { createContext, useReducer, useState } from "react";
-import petFinderReducer from "./petFinderReducer";
+import petFinderReducer from "./PetFinderReducer.js";
 import useLocalStorage from "../hooks/useLocalStorage";
 
 const PetFinderContext = createContext();
@@ -77,7 +77,7 @@ export const PetFinderProvider = ({ children }) => {
   };
 
   // OAuth
-  let getOAuth = function () {
+  let getOAuth = async function () {
     return fetch("https://api.petfinder.com/v2/oauth2/token", {
       method: "POST",
       body:
