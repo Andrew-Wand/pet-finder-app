@@ -8,7 +8,7 @@ import "animate.css";
 function AnimalSearch() {
   const [text, setText] = useState("");
 
-  const { searchAnimalsType } = useContext(PetFinderContext);
+  const { searchAnimalsType, makeCall } = useContext(PetFinderContext);
 
   const handleChange = (e) => {
     setText(e.target.value);
@@ -31,7 +31,7 @@ function AnimalSearch() {
 
   const searchType = async (e) => {
     navigate("/search");
-    searchAnimalsType(e.target.value);
+    makeCall(e.target.value);
   };
 
   const [dropClass, setDropClass] = useState(false);

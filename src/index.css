@@ -30,6 +30,8 @@ svg {
   pointer-events: none;
 }
 
+/* Dropdown transition */
+
 .search-icons {
   height: 10rem;
   transition: height 0.3s ease;

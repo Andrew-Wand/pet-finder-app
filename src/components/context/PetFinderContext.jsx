@@ -7,6 +7,11 @@ const PetFinderContext = createContext();
 const PETFINDER_URL = import.meta.env.VITE_PETFINDER_URL;
 const PETFINDER_TOKEN = import.meta.env.VITE_PETFINDER_TOKEN;
 
+const API_KEY = import.meta.env.VITE_API_KEY;
+const API_SECRET = import.meta.env.VITE_API_SECRET;
+
+let token, tokenType, expires;
+
 export const PetFinderProvider = ({ children }) => {
   const initialState = {
     animalsArray: [],
@@ -40,7 +45,10 @@ export const PetFinderProvider = ({ children }) => {
 
     const response = await fetch(`${PETFINDER_URL}/animals?${params}`, {
       headers: {
-        Authorization: `Bearer ${PETFINDER_TOKEN}`,
+        // Authorization: `Bearer ${PETFINDER_TOKEN}`,
+        Authorization: `Bearer ` + token,
+        // Authorization: tokenType + " " + token,
+        "Content-Type": "application/x-www-form-urlencoded",
       },
     });
 
@@ -56,7 +64,7 @@ export const PetFinderProvider = ({ children }) => {
   const getAnimal = async (id) => {
     const response = await fetch(`${PETFINDER_URL}/animals/${id}`, {
       headers: {
-        Authorization: `Bearer ${PETFINDER_TOKEN}`,
+        Authorization: `Bearer ${token}`,
       },
     });
 
@@ -66,6 +74,53 @@ export const PetFinderProvider = ({ children }) => {
       const animalData = await response.json();
       return { animal: animalData.animal };
     }
+  };
+
+  // OAuth
+  let getOAuth = function () {
+    return fetch("https://api.petfinder.com/v2/oauth2/token", {
+      method: "POST",
+      body:
+        "grant_type=client_credentials&client_id=" +
+        API_KEY +
+        "&client_secret=" +
+        API_SECRET,
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+      },
+    })
+      .then(function (resp) {
+        // Return the response as JSON
+        return resp.json();
+      })
+      .then(function (data) {
+        // Log the API data
+        console.log("token", data);
+
+        // Store token data
+        token = data.access_token;
+        tokenType = data.token_type;
+        expires = new Date().getTime() + data.expires_in * 1000;
+      })
+      .catch(function (err) {
+        // Log any errors
+        console.log("something went wrong", err);
+      });
+  };
+
+  const makeCall = (text) => {
+    // If current token is invalid, get a new one
+    if (!expires || expires - new Date().getTime() < 1) {
+      console.log("new call");
+      getOAuth().then(function () {
+        searchAnimalsType(text);
+      });
+      return;
+    }
+
+    // Otherwise, get pets
+    console.log("from cache");
+    searchAnimalsType(text);
   };
 
   // Wishlist stuff
@@ -121,6 +176,7 @@ export const PetFinderProvider = ({ children }) => {
         animals,
         wishlist,
         setWishlist,
+        makeCall,
       }}
     >
       {children}
