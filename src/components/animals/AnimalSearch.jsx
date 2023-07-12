@@ -6,28 +6,9 @@ import { useNavigate } from "react-router-dom";
 import "animate.css";
 
 function AnimalSearch() {
-  const [text, setText] = useState("");
-
-  const { searchAnimalsType, makeCall } = useContext(PetFinderContext);
-
-  const handleChange = (e) => {
-    setText(e.target.value);
-  };
+  const { makeCall } = useContext(PetFinderContext);
 
   const navigate = useNavigate();
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-
-    navigate("/search");
-
-    if (text === "") {
-      window.alert("derp!");
-    } else {
-      searchAnimalsType(text);
-    }
-
-    setText("");
-  };
 
   const searchType = async (e) => {
     navigate("/search");
@@ -51,27 +32,6 @@ function AnimalSearch() {
   return (
     <div className="w-full lg:w-full mt-48 align-center">
       <div data-theme="pastel" className="bg-transparent">
-        {/* <form onSubmit={handleSubmit}>
-          <div className="form-control">
-            <div className="relative animate__animated animate__fadeIn ">
-              <input
-                placeholder="Search"
-                type="text"
-                className="w-full pr-40 bg-rose-100 input input-lg text-black shadow-lg focus:outline-none  "
-                onChange={handleChange}
-                value={text}
-              />
-              <button
-                type="submit"
-                className="absolute top-0 right-0 rounded-l-none w-36 btn btn-secondary btn-lg "
-                data-theme="cupcake"
-              >
-                Go
-              </button>
-            </div>
-          </div>
-        </form> */}
-
         {/* Buttons below input and drop down menu */}
         <div
           className={

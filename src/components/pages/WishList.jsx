@@ -34,10 +34,6 @@ function Wishlist() {
             </div>
           </div>
         )}
-
-        {/* {uniqueWishlist?.map((item) => (
-          <WishlistItem key={item.id} item={item} />
-        ))} */}
       </div>
     </div>
   );

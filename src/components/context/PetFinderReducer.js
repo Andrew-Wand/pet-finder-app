@@ -12,11 +12,6 @@ const petFinderReducer = (state, action) => {
         animalPage: action.payload,
       };
 
-    // case "GET_ANIMALS_TYPE":
-    //   return {
-    //     ...state,
-    //     animals: action.payload,
-    //   };
 
     default:
       return state;

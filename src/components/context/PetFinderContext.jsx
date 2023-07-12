@@ -45,9 +45,8 @@ export const PetFinderProvider = ({ children }) => {
 
     const response = await fetch(`${PETFINDER_URL}/animals?${params}`, {
       headers: {
-        // Authorization: `Bearer ${PETFINDER_TOKEN}`,
         Authorization: `Bearer ` + token,
-        // Authorization: tokenType + " " + token,
+
         "Content-Type": "application/x-www-form-urlencoded",
       },
     });

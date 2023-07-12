@@ -3,7 +3,6 @@ import { useContext } from "react";
 import PetFinderContext from "../context/PetFinderContext";
 import { FaRegHeart } from "react-icons/fa";
 import { GiPawHeart } from "react-icons/gi";
-import Home from "../pages/Home";
 
 function Navbar({ title }) {
   const { uniqueWishlist } = useContext(PetFinderContext);

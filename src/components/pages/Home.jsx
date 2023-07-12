@@ -1,5 +1,4 @@
 import AnimalSearch from "../animals/AnimalSearch";
-import homeImg from "../../assets/animalshome.jpg";
 import homeImgTrans from "../../assets/animalshometransparent2.webp";
 import "animate.css";
 

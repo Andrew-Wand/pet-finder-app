@@ -5,12 +5,11 @@ import Flickity from "react-flickity-component";
 import { AiFillHeart, AiOutlineHeart } from "react-icons/ai";
 import useLocalStorage from "../hooks/useLocalStorage";
 
-function Animal({ animal }) {
+function Animal() {
   const {
     getAnimal,
     animalPage,
     dispatch,
-    wishlist,
     uniqueWishlist,
     addToWishlist,
     removeFromWishlist,
